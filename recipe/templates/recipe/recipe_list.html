@@ -10,8 +10,8 @@
 <hr>
 <br><br>
 <center>
-    <p style="display:inline;font-family:georgia;font-size:50px">O U R &nbsp; R E C I P E </p>
-    <br><br><br>
+    <p style="font-family:georgia;font-size:50px">O U R &nbsp; R E C I P E </p>
+    <br><br>
     {% if user.is_active %}
 
     <a class="btn btn-light btn-sm tag_margin my-5" href="{% url 'recipe:recipe_create' %}" style="float:right;color:black">
@@ -30,7 +30,7 @@
 <br>
 
 {% if rooms.has_previous %}
-<a href="?page1={{rooms.number|add:-1}}" style="display:inline-block;"><i class="fas fa-chevron-left fa-4x" style="color:#d9d9d9;position:absolute;margin-top:-62px;margin-left:267px;"></i></a>
+<a href="?page1={{rooms.number|add:-1}}" style="display:inline-block;"><i class="fas fa-chevron-left fa-4x" style="color:#d9d9d9;position:absolute;margin-top:-160px;margin-left:267px;"></i></a>
 {% endif %}
 
 
@@ -41,21 +41,21 @@
         {% for recipe in rooms %}
 
         <div class="col-md-4 py-2">
-            <div class="card" style="width:27em;">
+            <div class="card" style="width:27em;height:30em;">
 
 
                 <center>
                           <div class="img-square-wrapper">
                             {% for file in recipe.files.all %}
 
-                                <img id="image" src="{% url 'recipe:recipe_download' file.id %}" style="height:400px; width:350px;">
+                                <img id="image" src="{% url 'recipe:recipe_download' file.id %}" style="height:260px; width:348px;">
 
                             {% endfor %}
 
                         </div>
 
                 <a href="{% url 'recipe:recipe_detail' recipe.Rec_conId %}" style="color:black;">
-                    <p style="font-family:'바탕체';font-weight:bold;font-size:2em;margin-top:7em;">{{ recipe.Rec_conName }}</p>
+                    <p style="font-family:'바탕체';font-weight:bold;font-size:2em;margin-top:10.5em;">{{ recipe.Rec_conName }}</p>
 
                 </a>
 
@@ -147,9 +147,7 @@ html {
   display: table;
 }
 
-.u-clearfix:after {
-  clear: both;
-}
+
 
 .u-clearfix {
   *zoom: 1;
@@ -188,19 +186,9 @@ body{
   position: absolute;
   top: 20px;
   right: 15px;
-  max-height: 120px;
 }
 
 
-@media(max-width: 990px){
-  .card{
-    margin: 20px;
-  }
-}
-
-.clear{
-    clear:both;
-}
 
 
 

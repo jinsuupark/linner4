@@ -16,7 +16,7 @@
     }
 
     .tag_cloud{
-        width:100%;
+        width:90%;
         float:center;
     }
     .btn-moreInfo{
@@ -58,7 +58,7 @@
 
         {% for tag in tags %}
         {% if tag.num_times != 0%}
-        <span class="tag-{{tag.weight|floatformat:0}}">
+        <span class="tag-{{tag.weight|floatformat:0}}" style="display:inline;">
                 <span class="btn btn-light btn-sm tag_margin">
                     <a href="{% url 'recipe:tagged_object_list' tag.name %}" style="font-family:'바탕체';color:black;font-size:1.2em">
                         {{tag.name}}
