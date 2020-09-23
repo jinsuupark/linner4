@@ -7,11 +7,11 @@
 <center>
 <p style="display:inline;font-family:georgia;font-size:50px">O U R &nbsp; R E C I P E </p>
 </center>
-<br><br>
+<br><br><br><br><br><br>
 
 {% if rooms.has_previous %}
 <a href="?page1={{rooms.number|add:-1}}" style="display:inline-block;"><i class="fas fa-chevron-left fa-4x"
-                                                                                    style="color:#d9d9d9;position:absolute;margin-top:92px;margin-left:284px;"></i></a>
+                                                                                    style="color:#d9d9d9;position:absolute;margin-top:-130px;margin-left:284px;"></i></a>
 {% endif %}
 
 
@@ -20,52 +20,57 @@
 
     <div class="row">
 
-
         {% for recipe in rooms %}
+
         <div class="col-md-4 py-2">
-            <ul class="card" style="width:27em;height:23.2em">
+            <div class="card" style="width:27em;height:30em;">
+
+
+                <center>
+                          <div class="img-square-wrapper">
+                            {% for file in recipe.files.all %}
+
+                                <img id="image" src="{% url 'recipe:recipe_download' file.id %}" style="height:260px; width:348px;">
+
+                            {% endfor %}
+
+                        </div>
+
                 <a href="{% url 'recipe:recipe_detail' recipe.Rec_conId %}" style="color:black;">
-                    <p style="font-family:'바탕체';font-weight:bold;font-size:2em;">{{ recipe.Rec_conName }}</p>
+                    <p style="font-family:'바탕체';font-weight:bold;font-size:2em;margin-top:10.5em;">{{ recipe.Rec_conName }}</p>
 
                 </a>
 
 
-                {% for file in recipe.files.all %}
-
-                <img id="image" src="{% url 'recipe:recipe_download' file.id %}"
-                     style="float:right;width:13em;height:12em;">
-
-                {% endfor %}
+                    <p style="font-family:georgia;margin-right:70px;">by. {{recipe.Rec_conMemID}}
 
 
-
-                <p style="font-family:'바탕체';">{{ recipe.get_recipe_summary | safe}}</p>
-
-
-                <br><br><br><br>
-
-                <p style="display:inline;font-family:georgia;">by. {{recipe.Rec_conMemID}}
-
-                    <a class="btn btn-sm rec_like" name="{{ recipe.Rec_conId }}" type="button" value="Like">
-
+                    <a class="btn btn-sm rec_like" name="{{ recipe.Rec_conId }}" type="button" value="Like" style="display:inline;">
 
                         {% if user in recipe.Rec_conLikesUser.all %}
-                        <i class="fas fa-heart" id="rec_heart{{ recipe.Rec_conId }}" style="color:#bd1f00"></i>
+                        <i class="fas fa-heart" id="rec_heart{{ recipe.Rec_conId }}" style="color:#bd1f00;display:inline;"></i>
                         {% else %}
-                        <i class="far fa-heart" id="rec_heart{{ recipe.Rec_conId }}" style="color:#bd1f00"></i>
+                        <i class="far fa-heart" id="you_heart{{ recipe.Rec_conId }}"  style="color:#bd1f00;display:inline;"></i>
                         {% endif %}
-
-                <p id="rec_count-{{ recipe.Rec_conId }}" style="font:bold 1em;font-family:'바탕체';">
+                    </a>
+                <p id="rec_count-{{ recipe.Rec_conId }}" style="font:bold 1em;float:right;margin-top:-38px;margin-right:14px;">
                     좋아요&nbsp;{{ recipe.Rec_conLikesUser.all.count }}개</p>
-                </a>
+
+
 
                 </p>
+        </center>
+            </div>
 
-            </ul>
         </div>
+
+
         {% endfor %}
+    </div>
+
+</div>
         {% if rooms.has_next %}
-<a href="?page1={{rooms.number|add:+1}}"><i class="fas fa-chevron-right fa-4x" style="color:#d9d9d9;margin-left:100px;position:absolute;margin-top:130px;"></i></a>
+<a href="?page1={{rooms.number|add:+1}}"><i class="fas fa-chevron-right fa-4x" style="color:#d9d9d9;margin-left:100px;position:absolute;margin-top:110px;"></i></a>
 {% endif %}
     </div>
 
@@ -166,7 +171,6 @@ body{
   position: absolute;
   top: 20px;
   right: 15px;
-  max-height: 120px;
 }
 
 
