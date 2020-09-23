@@ -12,8 +12,8 @@
 <hr>
 <br><br>
 <center>
-    <p style="display:inline;font-family:georgia;font-size:50px"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O
-        U R &nbsp; R E C I P E </p>
+     <p style="font-family:georgia;font-size:50px">O U R &nbsp; R E C I P E </p>
+    <br><br>
     {% if user.is_active %}
 
     <a class="btn btn-light btn-sm tag_margin my-5" href="{% url 'recipe:recipe_create' %}" style="float:right;color:black">
@@ -44,7 +44,7 @@
         {% for recipe in rooms %}
 
         <div class="col-md-4 py-2">
-            <ul class="card" style="width:27em;height:23.2em">
+            <ul class="card" style="width:27em;height:30em">
                 <a href="{% url 'recipe:recipe_detail' recipe.Rec_conId %}" style="color:black;">
                     <p style="font-family:'바탕체';font-weight:bold;font-size:2em;display:block;">{{ recipe.Rec_conName }}</p>
 
@@ -416,3 +416,6 @@ $(document).ready(function(){
 
 
 {% endblock %}
+
+
+
