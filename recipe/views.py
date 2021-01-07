@@ -46,7 +46,6 @@ class UserPostListView(ListView):
 
 
 
-
 class RecipeTagCloudTV(TemplateView):
     template_name = 'taggit/taggit_cloud3.html'
 

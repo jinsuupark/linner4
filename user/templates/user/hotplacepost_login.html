@@ -73,10 +73,10 @@
                             </div>
                             <br>
                              {% if user.id == hotplace.owner_id %}
-                            <p> <a href="{% url 'hotplace:delete' hotplace.id %}">
-                                <button class="btn" type="button"><i class="fas fa-trash"></i>Delete</button></a>
+                            <p> <a class="btn" href="{% url 'hotplace:delete' hotplace.id %}">
+                                <i class="fas fa-trash"></i>Delete</a>
                             <a href="{% url 'hotplace:update' hotplace.id %}">
-                                <button class="btn" type="button"><i class="far fa-edit"></i>Update</button></a></p>
+                                <i class="far fa-edit"></i>Update</a></p>
                             {% endif %}
 
 
